@@ -1,3 +1,7 @@
+const prompt = require('prompt-sync')({sigint: true}); 
+let num  = prompt('ENTER THE EMPLOYEE WORKING STATUS CASE : ');
+num=Number(num);
+
 console.log("Welcome To Employee Wage Program");
 var empcheck=0;
 let attendance;
@@ -17,20 +21,26 @@ class EmployeeWage
     employeeAttendence()
     {
         empcheck=Math.floor(Math.random() *10 % 3);
-        if(empcheck==present)
+        switch(num)
         {
+            case 1:
             attendance="present";
             return "Employee is Present";
-        }
-        else if(empcheck==IS_PART_TIME)
-        {
+            break;
+        
+            case 2:
             attendance="part-time";
-           return "Employee is Part-Time Present!!!";
-        }
-        else
-        {
+            return "Employee is Part-Time Present!!!";
+            break;
+       
+            case 3:
             attendance="abscent";
             return "Employee is Abscent";
+            break;
+
+            default:
+                console.log("Enter valid Option!! ");
+                break;
         }
     }
     dailyWage(attendance)
